@@ -11,49 +11,42 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center">
+        android:gravity="center"
+        android:orientation="vertical">
 
-        <!-- Tên ứng dụng game -->
         <TextView
             android:id="@+id/tvAppName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Bull's Racing"
+            android:layout_marginBottom="16dp"
             android:fontFamily="@font/bangers"
-            android:textSize="44sp"
-            android:textStyle="bold"
+            android:text="Bull's Racing"
             android:textColor="#0F3977"
-            android:layout_marginBottom="16dp" />
+            android:textSize="44sp"
+            android:textStyle="bold" />
 
-        <!-- Hiện giá tiền của bạn -->
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
             android:text="Your Money$:"
-            android:textSize="38sp"
-            android:layout_marginEnd="8dp" />
+            android:textSize="38sp" />
 
         <TextView
             android:id="@+id/tvYourMoney"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="0"
-            android:textSize="18sp"
-            android:background="@android:color/darker_gray"
-            android:padding="8dp"
-            android:textColor="@android:color/white" />
+            android:background="#212121" />
 
-        <!-- Các đường đua -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
             android:text="Please Select a Race"
             android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_marginBottom="8dp" />
+            android:textStyle="bold" />
 
-        <!-- Đường đua 1 -->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -61,39 +54,38 @@
 
             <RadioButton
                 android:id="@+id/rbRace1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginEnd="8dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                android:layout_marginEnd="8dp" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
                 android:id="@+id/ivRace1"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:src="@drawable/ic_race1"
-                app:layout_constraintStart_toEndOf="@id/rbRace1"
-                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginEnd="8dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                android:layout_marginEnd="8dp" />
+                app:layout_constraintStart_toEndOf="@id/rbRace1"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <View
                 android:id="@+id/lineRace1"
                 android:layout_width="0dp"
                 android:layout_height="2dp"
-                android:background="@android:color/holo_red_dark"
-                app:layout_constraintStart_toEndOf="@id/ivRace1"
-                app:layout_constraintEnd_toStartOf="@id/etRace1Money"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp" />
+                android:background="@android:color/holo_red_dark"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/etRace1Money"
+                app:layout_constraintStart_toEndOf="@id/ivRace1"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
                 android:id="@+id/etRace1Money"
                 android:layout_width="100dp"
-                android:layout_height="wrap_content"
+                android:layout_height="48dp"
                 android:hint="$"
                 android:inputType="number"
                 android:padding="8dp"
@@ -103,7 +95,6 @@
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <!-- Đường đua 2 -->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -111,39 +102,38 @@
 
             <RadioButton
                 android:id="@+id/rbRace2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginEnd="8dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                android:layout_marginEnd="8dp" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
                 android:id="@+id/ivRace2"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:src="@drawable/ic_race2"
-                app:layout_constraintStart_toEndOf="@id/rbRace2"
-                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginEnd="8dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                android:layout_marginEnd="8dp" />
+                app:layout_constraintStart_toEndOf="@id/rbRace2"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <View
                 android:id="@+id/lineRace2"
                 android:layout_width="0dp"
                 android:layout_height="2dp"
-                android:background="@android:color/holo_blue_dark"
-                app:layout_constraintStart_toEndOf="@id/ivRace2"
-                app:layout_constraintEnd_toStartOf="@id/etRace2Money"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp" />
+                android:background="@android:color/holo_blue_dark"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/etRace2Money"
+                app:layout_constraintStart_toEndOf="@id/ivRace2"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
                 android:id="@+id/etRace2Money"
                 android:layout_width="100dp"
-                android:layout_height="wrap_content"
+                android:layout_height="48dp"
                 android:hint="$"
                 android:inputType="number"
                 android:padding="8dp"
@@ -153,7 +143,6 @@
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <!-- Đường đua 3 -->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -161,39 +150,38 @@
 
             <RadioButton
                 android:id="@+id/rbRace3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginEnd="8dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                android:layout_marginEnd="8dp" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
                 android:id="@+id/ivRace3"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:src="@drawable/ic_race3"
-                app:layout_constraintStart_toEndOf="@id/rbRace3"
-                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginEnd="8dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                android:layout_marginEnd="8dp" />
+                app:layout_constraintStart_toEndOf="@id/rbRace3"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <View
                 android:id="@+id/lineRace3"
                 android:layout_width="0dp"
                 android:layout_height="2dp"
-                android:background="@android:color/holo_green_dark"
-                app:layout_constraintStart_toEndOf="@id/ivRace3"
-                app:layout_constraintEnd_toStartOf="@id/etRace3Money"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp" />
+                android:background="@android:color/holo_green_dark"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/etRace3Money"
+                app:layout_constraintStart_toEndOf="@id/ivRace3"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
                 android:id="@+id/etRace3Money"
                 android:layout_width="100dp"
-                android:layout_height="wrap_content"
+                android:layout_height="48dp"
                 android:hint="$"
                 android:inputType="number"
                 android:padding="8dp"
@@ -208,19 +196,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
+            android:background="@drawable/button_gradient"
             android:text="Start"
             android:textColor="#1FDABE"
-            android:textSize="30dp"
-            android:backgroundTint="@drawable/button_gradient" />
+            android:textSize="30dp" />
 
         <Button
             android:id="@+id/btnReset"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
+            android:background="@drawable/button_gradient"
             android:text="Reset"
             android:textColor="#1FDABE"
-            android:textSize="30dp"
-            android:backgroundTint="@drawable/button_gradient" />
+            android:textSize="30dp" />
     </LinearLayout>
 </ScrollView>
