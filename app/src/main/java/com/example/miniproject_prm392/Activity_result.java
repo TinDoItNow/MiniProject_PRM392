@@ -26,22 +26,28 @@ public class Activity_result extends AppCompatActivity {
 
         TextView tvResultMessage = findViewById(R.id.tvResultMessage);
         TextView tvWinningAmount = findViewById(R.id.tvWinningAmount);
+        TextView tvWinningAmountLabel = findViewById(R.id.tvWinningAmountLabel);
 
-        // Nhận dữ liệu từ Intent
+        // Get data from Intent
         Intent intent = getIntent();
         boolean isWinner = intent.getBooleanExtra("isWinner", false);
-        int winningAmount = intent.getIntExtra("winningAmount", 0);
+        double totalGetAmount = intent.getDoubleExtra("totalGetAmount", 0);
 
-        // Thiết lập kết quả và số tiền trúng thưởng
+        // Set result and winning amount
         if (isWinner) {
             tvResultMessage.setText("You Win!");
+
             tvResultMessage.setTextColor(getResources().getColor(android.R.color.holo_green_light));
+            tvWinningAmountLabel.setText("Winning Amount:");
         } else {
             tvResultMessage.setText("You Lose!");
             tvResultMessage.setTextColor(getResources().getColor(android.R.color.holo_red_light));
+            tvWinningAmountLabel.setText("Losing Amount:");
         }
-        tvWinningAmount.setText(String.valueOf(winningAmount));
-        }
+//        tvWinningAmount.setText(String.format("%.2f", winningAmount));
+        tvWinningAmount.setText(String.format("%.2f", totalGetAmount));
+    }
+
     public void goBack(View view) {
         finish();
     }

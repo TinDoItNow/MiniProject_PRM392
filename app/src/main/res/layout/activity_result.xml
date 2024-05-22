@@ -4,10 +4,10 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:padding="16dp"
     android:background="@drawable/background_gradient"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="16dp"
     tools:context=".Activity_result">
 
     <!-- Title -->
@@ -15,31 +15,31 @@
         android:id="@+id/tvResultTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
         android:text="Bet Results"
+        android:textColor="@color/colorAccent"
         android:textSize="40sp"
-        android:textStyle="bold"
-        android:textColor="#8331D5"
-        android:layout_marginBottom="16dp" />
+        android:textStyle="bold" />
 
     <!-- Result Message -->
     <TextView
         android:id="@+id/tvResultMessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
         android:text="You win!"
-        android:textSize="30sp"
-        android:textColor="#1ADF72"
-        android:layout_marginBottom="16dp" />
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="30sp" />
 
     <!-- Winning Amount -->
     <TextView
         android:id="@+id/tvWinningAmountLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Winning amount:"
-        android:textSize="35sp"
-        android:textColor="#0FD3DA"
-        android:layout_marginBottom="8dp" />
+        android:layout_marginBottom="8dp"
+        android:text="Winning Amount"
+        android:textColor="@color/colorPrimary"
+        android:textSize="35sp" />
 
     <TextView
         android:id="@+id/tvWinningAmount"
@@ -55,11 +55,11 @@
         android:id="@+id/btnBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Go Back"
-        android:textSize="18sp"
-        android:textColor="#19D5C5"
-        android:backgroundTint="@drawable/button_gradient"
-        android:padding="8dp"
         android:layout_marginTop="16dp"
-        android:onClick="goBack" />
+        android:background="@drawable/button_gradient"
+        android:onClick="goBack"
+        android:padding="8dp"
+        android:text="Go Back"
+        android:textColor="#19D5C5"
+        android:textSize="18sp" />
 </LinearLayout>

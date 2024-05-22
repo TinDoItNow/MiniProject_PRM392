@@ -21,28 +21,34 @@
             android:layout_marginBottom="16dp"
             android:fontFamily="@font/bangers"
             android:text="Bull's Racing"
-            android:textColor="#0F3977"
+            android:layout_gravity="center"
+            android:textColor="@color/textColor"
             android:textSize="44sp"
             android:textStyle="bold" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:text="Your Money$:"
-            android:textSize="38sp" />
+            android:text="Your Money:"
+            android:layout_gravity="center"
+            android:textColor="@color/textColor"
+            android:textSize="30sp" />
+
 
         <TextView
             android:id="@+id/tvYourMoney"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="#212121" />
+            android:text=""
+            android:textSize="30dp"
+            android:textColor="@color/textColor" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:text="Please Select a Race"
+            android:textColor="@color/textColor"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -67,7 +73,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
                 android:progressDrawable="@drawable/seekbar_progress"
-                android:thumb="@drawable/seekbar_thumb"
+                android:thumb="@drawable/car1"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/etRace1Money"
                 app:layout_constraintStart_toEndOf="@id/cbRace1"
@@ -80,7 +86,8 @@
                 android:hint="$"
                 android:inputType="number"
                 android:padding="8dp"
-                android:textColorHint="@color/black"
+                android:textColor="@color/textColor"
+                android:textColorHint="@color/textColor"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -107,7 +114,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
                 android:progressDrawable="@drawable/seekbar_progress"
-                android:thumb="@drawable/seekbar_thumb"
+                android:thumb="@drawable/car2"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/etRace2Money"
                 app:layout_constraintStart_toEndOf="@id/cbRace2"
@@ -120,7 +127,8 @@
                 android:hint="$"
                 android:inputType="number"
                 android:padding="8dp"
-                android:textColorHint="@color/black"
+                android:textColor="@color/textColor"
+                android:textColorHint="@color/textColor"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -147,7 +155,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
                 android:progressDrawable="@drawable/seekbar_progress"
-                android:thumb="@drawable/seekbar_thumb"
+                android:thumb="@drawable/car3"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/etRace3Money"
                 app:layout_constraintStart_toEndOf="@id/cbRace3"
@@ -160,7 +168,8 @@
                 android:hint="$"
                 android:inputType="number"
                 android:padding="8dp"
-                android:textColorHint="@color/black"
+                android:textColor="@color/textColor"
+                android:textColorHint="@color/textColor"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -173,7 +182,7 @@
             android:layout_marginBottom="8dp"
             android:background="@drawable/button_gradient"
             android:text="Start"
-            android:textColor="#1FDABE"
+            android:textColor="@color/textColor"
             android:textSize="30dp" />
 
         <Button
@@ -183,7 +192,16 @@
             android:layout_marginBottom="10dp"
             android:background="@drawable/button_gradient"
             android:text="Reset"
-            android:textColor="#1FDABE"
+            android:textColor="@color/textColor"
             android:textSize="30dp" />
+
+        <Button
+            android:id="@+id/btnLogout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Logout"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"/>
+
     </LinearLayout>
 </ScrollView>

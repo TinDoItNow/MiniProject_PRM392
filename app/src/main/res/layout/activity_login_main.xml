@@ -24,7 +24,7 @@
         android:fontFamily="@font/bungee"
         android:text="Hello there, Welcome Back"
         android:textAlignment="center"
-        android:textColor="#000"
+        android:textColor="@color/textColor"
         android:textSize="32dp"
         android:transitionName="logo_name" />
 
@@ -44,6 +44,7 @@
             android:layout_marginBottom="20dp"
             android:orientation="vertical">
 
+
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/RoundedTextInputLayout"
                 android:layout_width="match_parent"
@@ -55,15 +56,15 @@
                     android:id="@+id/txtUsername"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Username" />
+                    android:hint="Username"
+                    android:textColor="@color/textColor"
+                    android:textColorHint="@color/textColor" />
 
             </com.google.android.material.textfield.TextInputLayout>
-
 
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/RoundedTextInputLayout"
                 android:layout_width="match_parent"
-
                 android:layout_height="wrap_content"
                 app:passwordToggleEnabled="true">
 
@@ -72,9 +73,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Password"
-                    android:inputType="textPassword" />
+                    android:inputType="textPassword"
+                    android:textColor="@color/textColor"
+                    android:textColorHint="@color/textColor" />
 
             </com.google.android.material.textfield.TextInputLayout>
+
 
             <Button
                 android:id="@+id/btn"
@@ -85,7 +89,7 @@
                 android:elevation="0dp"
                 android:fontFamily="serif"
                 android:text="Forget Password?"
-                android:textColor="@color/cardview_dark_background" />
+                android:textColor="@color/textColor" />
 
             <Button
                 android:id="@+id/btnLogin"
@@ -93,9 +97,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
-                android:backgroundTint="#2AD8C4"
+                android:backgroundTint="?attr/colorPrimary"
                 android:text="LET'S GO"
-                android:textColor="#fff" />
+                android:textColor="?attr/colorOnPrimary" />
 
             <Button
                 android:id="@+id/btnSignUp"
@@ -106,7 +110,7 @@
                 android:elevation="0dp"
                 android:fontFamily="serif"
                 android:text="Register? Sign Up Now"
-                android:textColor="@color/cardview_dark_background" />
+                android:textColor="@color/textColor" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
