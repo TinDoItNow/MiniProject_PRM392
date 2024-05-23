@@ -1,6 +1,9 @@
 package com.example.miniproject_prm392;
 
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.content.ComponentName;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.media.MediaPlayer;
@@ -14,6 +17,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -35,9 +39,9 @@ public class Activity_game extends AppCompatActivity {
     private CheckBox cbRace1, cbRace2, cbRace3;
     private SeekBar sbRace1, sbRace2, sbRace3;
     private EditText etRace1Money, etRace2Money, etRace3Money;
-    private Button btnStart, btnReset, btnRule;
+    private Button btnStart, btnReset, btnRule, btnAdd;
     private TextView tvYourMoney;
-    private double totalMoney = 10000;
+    private double totalMoney = 100;
     private boolean raceOver = false;
 
 
@@ -54,6 +58,7 @@ public class Activity_game extends AppCompatActivity {
     MediaPlayer player;
 
     private VideoView bgVideo;
+    private ImageView imgRacetrack, imgRacetrack1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,7 +81,8 @@ public class Activity_game extends AppCompatActivity {
         btnReset = findViewById(R.id.btnReset);
         tvYourMoney = findViewById(R.id.tvYourMoney);
 
-        btnRule = findViewById(R.id.btnRule);
+        btnRule = (Button) findViewById(R.id.btnRule);
+        btnAdd = (Button) findViewById(R.id.btnAdd);
 
         // Set money 10000,00 by default
         tvYourMoney.setText(String.format("%.2f", totalMoney));
@@ -320,8 +326,34 @@ public class Activity_game extends AppCompatActivity {
                 showRule();
             }
         });
+
+        btnAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showAddMoneyForm();
+            }
+        });
+
+        imgRacetrack = findViewById(R.id.imgRacetrack);
+        imgRacetrack1 = findViewById(R.id.imgRacetrack1);
+
+        animateRacetrack(imgRacetrack, 0, -1000, 1000);
+        animateRacetrack(imgRacetrack1, 1000, -10 , 1000);
     }
-        private void showRule() {
+
+    private void animateRacetrack(ImageView imgView, int value, int value1, int duration) {
+        // Example animation: Horizontal scrolling
+        ObjectAnimator animator = ObjectAnimator.ofFloat(imgView, View.TRANSLATION_X, value, value1);
+        animator.setDuration(duration); // 10 seconds
+        animator.setRepeatCount(ObjectAnimator.INFINITE); // Repeat indefinitely
+//        animator.setRepeatMode(ObjectAnimator.REVERSE); // Reverse the animation at the end
+
+    // Start the animation
+    animator.start();
+
+    }
+
+    private void showRule() {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             LayoutInflater inflater = getLayoutInflater();
             View dialogLayout = inflater.inflate(R.layout.activity_rule_of_game, null);
@@ -329,6 +361,32 @@ public class Activity_game extends AppCompatActivity {
             builder.setPositiveButton("OK", null);
             builder.show();
         }
+
+    private void showAddMoneyForm() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        LayoutInflater inflater = getLayoutInflater();
+        View dialogLayout = inflater.inflate(R.layout.activity_add_money, null);
+        builder.setView(dialogLayout);
+
+        final EditText edtAddMoney = dialogLayout.findViewById(R.id.edtAddMoney);
+
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                String inputText = edtAddMoney.getText().toString();
+                if (!inputText.isEmpty()) {
+                    int addedMoney = Integer.parseInt(inputText);
+                    totalMoney += addedMoney;
+                    // Optionally, you can update the UI or show a message here
+                    Toast.makeText(Activity_game.this, "Total Money: " + totalMoney, Toast.LENGTH_SHORT).show();
+                    tvYourMoney.setText(String.format("%.2f", totalMoney));
+                }
+            }
+        });
+
+        builder.setNegativeButton("Cancel", null);
+        builder.show();
+    }
 
     @Override
     protected void onResume() {
