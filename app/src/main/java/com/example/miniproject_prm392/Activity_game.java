@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.os.IBinder;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -34,7 +35,7 @@ public class Activity_game extends AppCompatActivity {
     private CheckBox cbRace1, cbRace2, cbRace3;
     private SeekBar sbRace1, sbRace2, sbRace3;
     private EditText etRace1Money, etRace2Money, etRace3Money;
-    private Button btnStart, btnReset;
+    private Button btnStart, btnReset, btnRule;
     private TextView tvYourMoney;
     private double totalMoney = 10000;
     private boolean raceOver = false;
@@ -74,6 +75,8 @@ public class Activity_game extends AppCompatActivity {
         btnStart = findViewById(R.id.btnStart);
         btnReset = findViewById(R.id.btnReset);
         tvYourMoney = findViewById(R.id.tvYourMoney);
+
+        btnRule = findViewById(R.id.btnRule);
 
         // Set money 10000,00 by default
         tvYourMoney.setText(String.format("%.2f", totalMoney));
@@ -311,7 +314,21 @@ public class Activity_game extends AppCompatActivity {
             }
         });
 
+        btnRule.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showRule();
+            }
+        });
     }
+        private void showRule() {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            LayoutInflater inflater = getLayoutInflater();
+            View dialogLayout = inflater.inflate(R.layout.activity_rule_of_game, null);
+            builder.setView(dialogLayout);
+            builder.setPositiveButton("OK", null);
+            builder.show();
+        }
 
     @Override
     protected void onResume() {
@@ -330,6 +347,8 @@ public class Activity_game extends AppCompatActivity {
         bgVideo.stopPlayback();
         super.onDestroy();
     }
+
+
 }
 
 

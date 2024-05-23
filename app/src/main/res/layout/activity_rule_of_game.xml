@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/gameRuleTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="\n 1. Người chơi sẽ được miễn phí 100 tiền khởi đầu. \n
+                \n 2. Tích vào các ô checkbox rồi mới được ghi số tiền đặt cược.\n
+                \n 3. Tỉ lệ ăn sẽ là 1.8 (tức là đặt 10 ăn 18).\n
+                \n 4. Click chọn checkbox xong và ghi số tiền thì mới nhấn nút bắt đầu.\n
+                \n 5. Khi xe về đích đầu tiên, dựa vào lựa chọn trước đó của người chơi mà thông báo số tiền đã thắng hoặc thua.\n
+                \n 6. Bấm quay lại để trở về màn hình chơi game và tiếp tục."
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

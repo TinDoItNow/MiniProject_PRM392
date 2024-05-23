@@ -22,6 +22,9 @@
             android:exported="true" />
 
         <activity
+            android:name=".Rule_of_game"
+            android:exported="false" />
+        <activity
             android:name=".Activity_register"
             android:exported="false" />
         <activity
