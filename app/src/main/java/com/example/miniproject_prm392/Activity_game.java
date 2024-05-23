@@ -1,7 +1,11 @@
 package com.example.miniproject_prm392;
 
+import android.content.ComponentName;
 import android.content.Intent;
+import android.content.ServiceConnection;
+import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.IBinder;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
@@ -44,13 +48,15 @@ public class Activity_game extends AppCompatActivity {
 
 
     private boolean isTie = false;
-
+    MediaPlayer player;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
-
+        // Khởi động service âm thanh và liên kết với activity
+        Intent turnOnSound = new Intent(Activity_game.this, Bg_sound.class);
+        startService(turnOnSound);
         // Initialize views
         cbRace1 = findViewById(R.id.cbRace1);
         cbRace2 = findViewById(R.id.cbRace2);
@@ -110,6 +116,15 @@ public class Activity_game extends AppCompatActivity {
 
         // Set up start button
         btnStart.setOnClickListener(v -> {
+            Intent turnOffSound = new Intent(Activity_game.this, Bg_sound.class);
+            stopService(turnOffSound);
+            //Change racing sound
+            if (player != null) {
+                player.stop();
+                player.release();
+            }
+            player = MediaPlayer.create(Activity_game.this, R.raw.racing_sound);
+            player.start();
             // Get the money the user inputs into the EditText fields
             double betAmount;
             if (cbRace1.isChecked() && !etRace1Money.getText().toString().isEmpty()) {
@@ -269,16 +284,14 @@ public class Activity_game extends AppCompatActivity {
                         // User confirmed logout, go to login page
                         Intent intent = new Intent(Activity_game.this, Login_main.class);
                         startActivity(intent);
+                        Intent turnOffSound = new Intent(Activity_game.this, Bg_sound.class);
+                        stopService(turnOffSound);
                         finish();
                     })
                     .setNegativeButton(android.R.string.no, null)
                     .show();
         });
-
-
     }
-
-
 }
 
 

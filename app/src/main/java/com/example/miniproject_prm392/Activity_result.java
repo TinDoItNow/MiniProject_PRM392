@@ -1,6 +1,7 @@
 package com.example.miniproject_prm392;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.widget.TextView;
 import android.view.View;
@@ -12,7 +13,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class Activity_result extends AppCompatActivity {
-
+    MediaPlayer mediaPlayer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +25,13 @@ public class Activity_result extends AppCompatActivity {
             return insets;
         });
 
+        //
+        if(mediaPlayer == null){
+            mediaPlayer = MediaPlayer.create(Activity_result.this, R.raw.result_sound);
+        }
+        mediaPlayer.start();
+
+        setResult(RESULT_OK);
         TextView tvResultMessage = findViewById(R.id.tvResultMessage);
         TextView tvWinningAmount = findViewById(R.id.tvWinningAmount);
         TextView tvWinningAmountLabel = findViewById(R.id.tvWinningAmountLabel);
@@ -49,6 +57,8 @@ public class Activity_result extends AppCompatActivity {
     }
 
     public void goBack(View view) {
+        Intent turnOnSound = new Intent(Activity_result.this, Bg_sound.class);
+        startService(turnOnSound);
         finish();
     }
 }
