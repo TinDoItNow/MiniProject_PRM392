@@ -4,6 +4,7 @@ import android.content.ComponentName;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.text.Editable;
@@ -26,6 +27,7 @@ import java.util.Random;
 import android.app.AlertDialog;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
+import android.widget.VideoView;
 
 public class Activity_game extends AppCompatActivity {
 
@@ -49,6 +51,8 @@ public class Activity_game extends AppCompatActivity {
 
     private boolean isTie = false;
     MediaPlayer player;
+
+    private VideoView bgVideo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -116,6 +120,7 @@ public class Activity_game extends AppCompatActivity {
 
         // Set up start button
         btnStart.setOnClickListener(v -> {
+
             Intent turnOffSound = new Intent(Activity_game.this, Bg_sound.class);
             stopService(turnOffSound);
             //Change racing sound
@@ -226,6 +231,7 @@ public class Activity_game extends AppCompatActivity {
                         intent.putExtra("totalGetAmount", totalGetAmount); // Pass the total amount to the result page
                         startActivity(intent);
                     }).start();
+                    bgVideo.start();
                 } else {
                     Toast.makeText(Activity_game.this, "You cannot bet more money than you have", Toast.LENGTH_SHORT).show();
                 }
@@ -291,6 +297,38 @@ public class Activity_game extends AppCompatActivity {
                     .setNegativeButton(android.R.string.no, null)
                     .show();
         });
+
+        bgVideo = (VideoView) findViewById(R.id.background);
+        String path = "android.resource://com.example.miniproject_prm392/" + R.raw.background;
+        Uri u = Uri.parse(path);
+        bgVideo.setVideoURI(u);
+
+
+        bgVideo.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+            @Override
+            public void onPrepared(MediaPlayer mp) {
+                mp.setLooping(true);
+            }
+        });
+
+    }
+
+    @Override
+    protected void onResume() {
+        bgVideo.resume();
+        super.onResume();
+    }
+
+    @Override
+    protected void onPause() {
+        bgVideo.pause();
+        super.onPause();
+    }
+
+    @Override
+    protected void onDestroy() {
+        bgVideo.stopPlayback();
+        super.onDestroy();
     }
 }
 

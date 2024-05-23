@@ -1,207 +1,236 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    tools:context=".Activity_game">
+    tools:context=".Activity_game"
+    android:background="#ccc">
 
-    <LinearLayout
+    <VideoView
+        android:id="@+id/background"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="vertical">
+        android:layout_height="match_parent" />
 
-        <TextView
-            android:id="@+id/tvAppName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:fontFamily="@font/bangers"
-            android:text="Bull's Racing"
-            android:layout_gravity="center"
-            android:textColor="@color/textColor"
-            android:textSize="44sp"
-            android:textStyle="bold" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Your Money:"
-            android:layout_gravity="center"
-            android:textColor="@color/textColor"
-            android:textSize="30sp" />
-
-
-        <TextView
-            android:id="@+id/tvYourMoney"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=""
-            android:textSize="30dp"
-            android:textColor="@color/textColor" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:text="Please Select a Race"
-            android:textColor="@color/textColor"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp">
+            android:gravity="center"
+            android:orientation="vertical">
 
-            <CheckBox
-                android:id="@+id/cbRace1"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:layout_marginEnd="8dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
 
-            <SeekBar
-                android:id="@+id/sbRace1"
-                android:layout_width="0dp"
+
+            <TextView
+                android:id="@+id/tvAppName"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
-                android:progressDrawable="@drawable/seekbar_progress"
-                android:thumb="@drawable/car1"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/etRace1Money"
-                app:layout_constraintStart_toEndOf="@id/cbRace1"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/bangers"
+                android:text="Bull's Racing"
+                android:layout_gravity="center"
+                android:textColor="#fff"
+                android:textSize="44sp"
+                android:textStyle="bold" />
 
-            <EditText
-                android:id="@+id/etRace1Money"
-                android:layout_width="100dp"
-                android:layout_height="48dp"
-                android:hint="$"
-                android:inputType="number"
-                android:padding="8dp"
-                android:textColor="@color/textColor"
-                android:textColorHint="@color/textColor"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp">
-
-            <CheckBox
-                android:id="@+id/cbRace2"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:layout_marginEnd="8dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <SeekBar
-                android:id="@+id/sbRace2"
-                android:layout_width="0dp"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
-                android:progressDrawable="@drawable/seekbar_progress"
-                android:thumb="@drawable/car2"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/etRace2Money"
-                app:layout_constraintStart_toEndOf="@id/cbRace2"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:text="Your Money:"
+                android:layout_gravity="center"
+                android:textColor="#fff"
+                android:textSize="30sp" />
 
-            <EditText
-                android:id="@+id/etRace2Money"
-                android:layout_width="100dp"
-                android:layout_height="48dp"
-                android:hint="$"
-                android:inputType="number"
-                android:padding="8dp"
-                android:textColor="@color/textColor"
-                android:textColorHint="@color/textColor"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp">
-
-            <CheckBox
-                android:id="@+id/cbRace3"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:layout_marginEnd="8dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <SeekBar
-                android:id="@+id/sbRace3"
-                android:layout_width="0dp"
+            <TextView
+                android:id="@+id/tvYourMoney"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
-                android:progressDrawable="@drawable/seekbar_progress"
-                android:thumb="@drawable/car3"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/etRace3Money"
-                app:layout_constraintStart_toEndOf="@id/cbRace3"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:text=""
+                android:textSize="30dp"
+                android:textColor="#fff" />
 
-            <EditText
-                android:id="@+id/etRace3Money"
-                android:layout_width="100dp"
-                android:layout_height="48dp"
-                android:hint="$"
-                android:inputType="number"
-                android:padding="8dp"
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp"
+                android:background="#fff"
+                android:orientation="vertical"
+                android:paddingTop="20dp"
+                android:paddingBottom="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="85dp"
+                    android:layout_marginBottom="8dp"
+                    android:text="Please Select a Race"
+                    android:textColor="@color/textColor"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp">
+
+                    <CheckBox
+                        android:id="@+id/cbRace1"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_marginEnd="8dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <SeekBar
+                        android:id="@+id/sbRace1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:progressDrawable="@drawable/seekbar_progress"
+                        android:thumb="@drawable/car1"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/etRace1Money"
+                        app:layout_constraintStart_toEndOf="@id/cbRace1"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <EditText
+                        android:id="@+id/etRace1Money"
+                        android:layout_width="100dp"
+                        android:layout_height="48dp"
+                        android:hint="$"
+                        android:inputType="number"
+                        android:padding="8dp"
+                        android:textColor="@color/textColor"
+                        android:textColorHint="@color/textColor"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp">
+
+                    <CheckBox
+                        android:id="@+id/cbRace2"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_marginEnd="8dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <SeekBar
+                        android:id="@+id/sbRace2"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:progressDrawable="@drawable/seekbar_progress"
+                        android:thumb="@drawable/car2"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/etRace2Money"
+                        app:layout_constraintStart_toEndOf="@id/cbRace2"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <EditText
+                        android:id="@+id/etRace2Money"
+                        android:layout_width="100dp"
+                        android:layout_height="48dp"
+                        android:hint="$"
+                        android:inputType="number"
+                        android:padding="8dp"
+                        android:textColor="@color/textColor"
+                        android:textColorHint="@color/textColor"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp">
+
+                    <CheckBox
+                        android:id="@+id/cbRace3"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_marginEnd="8dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <SeekBar
+                        android:id="@+id/sbRace3"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:progressDrawable="@drawable/seekbar_progress"
+                        android:thumb="@drawable/car3"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/etRace3Money"
+                        app:layout_constraintStart_toEndOf="@id/cbRace3"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <EditText
+                        android:id="@+id/etRace3Money"
+                        android:layout_width="100dp"
+                        android:layout_height="48dp"
+                        android:hint="$"
+                        android:inputType="number"
+                        android:padding="8dp"
+                        android:textColor="@color/textColor"
+                        android:textColorHint="@color/textColor"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnStart"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/button_gradient"
+                android:text="Start"
                 android:textColor="@color/textColor"
-                android:textColorHint="@color/textColor"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                android:textSize="30dp" />
 
-        <Button
-            android:id="@+id/btnStart"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:background="@drawable/button_gradient"
-            android:text="Start"
-            android:textColor="@color/textColor"
-            android:textSize="30dp" />
+            <Button
+                android:id="@+id/btnReset"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/button_gradient"
+                android:text="Reset"
+                android:textColor="@color/textColor"
+                android:textSize="30dp" />
 
-        <Button
-            android:id="@+id/btnReset"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:background="@drawable/button_gradient"
-            android:text="Reset"
-            android:textColor="@color/textColor"
-            android:textSize="30dp" />
+            <Button
+                android:id="@+id/btnLogout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Logout"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"/>
 
-        <Button
-            android:id="@+id/btnLogout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Logout"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true"/>
+        </LinearLayout>
 
-    </LinearLayout>
-</ScrollView>
+    </ScrollView>
+
+
+</FrameLayout>
